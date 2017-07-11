@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "clean-css": "^3.4.26",
+    "clean-css": "^3.4.27",
     "csslint": "^0.10.0",
     "eslint": "^3.19.0",
-    "rigning": "^3.0.1"
+    "rigning": "^3.1.8"
   },
   "greniConfig": {
     "entryPoints": {
