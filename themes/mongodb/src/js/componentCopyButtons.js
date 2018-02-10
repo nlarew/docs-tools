@@ -1,3 +1,12 @@
+// For dev purposes I totally changed this module. Before commit, this
+// file should be restored to its HEAD state and the current contents
+// should be migrated to a new module. This might require a small class
+// name change since copyable-code will be overloaded.
+
+function nodeListToArray(nodeList) {
+    return Array.prototype.slice.call(nodeList);
+}
+
 export function setup() {
     const copyableBlocks = document.getElementsByClassName('copyable-code');
     for (const copyBlock of copyableBlocks) {
@@ -7,16 +16,21 @@ export function setup() {
         }
 
         const text = highlightElement.innerText.trim();
-        const copyButtonContainer = document.createElement('div');
-        const copyButton = document.createElement('button');
-        const copyIcon = document.createElement('span');
-        copyButtonContainer.className = 'copy-button-container';
-        copyIcon.className = 'fa fa-clipboard';
-        copyButton.className = 'copy-button';
-        copyButton.appendChild(copyIcon);
-        copyButton.appendChild(document.createTextNode('Copy'));
-        copyButtonContainer.appendChild(copyButton);
-        highlightElement.insertBefore(copyButtonContainer, highlightElement.children[0]);
+        const copyButtonContainerNodes = nodeListToArray(copyBlock.previousElementSibling.childNodes);
+        const copyButton = copyButtonContainerNodes.filter(
+            (child) => child.nodeName === 'A'
+        )[0];
+
+        // const copyButton = document.createElement('button');
+        // const copyIcon = document.createElement('span');
+        // copyButtonContainer.className = 'copy-button-container';
+        // copyIcon.className = 'fa fa-clipboard';
+        // copyButton.className = 'copy-button';
+        // copyButton.appendChild(copyIcon);
+        // copyButton.appendChild(document.createTextNode('Copy'));
+        // copyButtonContainer.appendChild(copyButton);
+        // highlightElement.insertBefore(copyButtonContainer, highlightElement.children[0]);
+
         copyButton.addEventListener('click', () => {
             const tempElement = document.createElement('textarea');
             tempElement.style.position = 'fixed';

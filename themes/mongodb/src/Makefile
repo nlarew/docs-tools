@@ -8,6 +8,7 @@ CSS_INPUTS=css/bootstrap-custom.css \
            css/mws.css \
            css/copy-button.css \
            css/tabs.css \
+           css/button-code-block.css \
            css/lightbox.css
 CSS_FILES=$(CSS_INPUTS) css/basic.css
 
