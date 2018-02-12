@@ -6,6 +6,8 @@ CSS_INPUTS=css/bootstrap-custom.css \
            css/feedback.css \
            css/header.css \
            css/mws.css \
+           css/copy-button.css \
+           css/button-code-block.css \
            css/tabs.css \
            css/lightbox.css \
            css/code-buttons.css
