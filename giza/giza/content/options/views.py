@@ -43,7 +43,10 @@ def render_options(option, conf):
             directive_str += ', {0}'.format(option.aliases)
 
             if option.has_field('args'):
-                directive_str += ' {args}'
+                directive_str += ' {args} asdf'
+
+        if option.has_field('optional'):
+            directive_str += ' :: Optional'
 
         if option.has_field('args'):
             directive_str = directive_str.format(prefix=prefix, name=option.name, args=option.args)
